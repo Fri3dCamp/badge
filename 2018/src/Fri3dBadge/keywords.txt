@@ -1,0 +1,5 @@
+Fri3dBadge	KEYWORD1
+draai	KEYWORD2
+draai_naar	KEYWORD2
+hoek	KEYWORD2
+servo	KEYWORD2
