@@ -9012,8 +9012,8 @@ Source: http://www.osram.convergy.de/</description>
 </segment>
 <segment>
 <pinref part="ESP32" gate="G$1" pin="3V3"/>
-<wire x1="87.63" y1="81.534" x2="77.47" y2="81.534" width="0.1524" layer="91"/>
-<label x="77.47" y="81.534" size="1.778" layer="95"/>
+<wire x1="87.63" y1="81.534" x2="69.85" y2="81.534" width="0.1524" layer="91"/>
+<label x="69.85" y="81.534" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R6" gate="G$1" pin="2"/>
@@ -9135,8 +9135,8 @@ Source: http://www.osram.convergy.de/</description>
 <net name="RESET" class="0">
 <segment>
 <pinref part="ESP32" gate="G$1" pin="EN"/>
-<wire x1="87.63" y1="78.994" x2="77.47" y2="78.994" width="0.1524" layer="91"/>
-<label x="77.47" y="78.994" size="1.778" layer="95"/>
+<wire x1="87.63" y1="78.994" x2="69.85" y2="78.994" width="0.1524" layer="91"/>
+<label x="69.85" y="78.994" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="RESET" gate="G$1" pin="1"/>
@@ -9371,36 +9371,36 @@ Source: http://www.osram.convergy.de/</description>
 <net name="ROW1" class="0">
 <segment>
 <pinref part="ESP32" gate="G$1" pin="IO15"/>
-<wire x1="123.19" y1="43.434" x2="138.43" y2="43.434" width="0.1524" layer="91"/>
-<label x="133.35" y="43.434" size="1.778" layer="95"/>
+<wire x1="123.19" y1="43.434" x2="135.89" y2="43.434" width="0.1524" layer="91"/>
+<label x="128.27" y="43.434" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ROW2" class="0">
 <segment>
 <pinref part="ESP32" gate="G$1" pin="IO2"/>
-<wire x1="123.19" y1="45.974" x2="138.43" y2="45.974" width="0.1524" layer="91"/>
-<label x="133.35" y="45.974" size="1.778" layer="95"/>
+<wire x1="123.19" y1="45.974" x2="135.89" y2="45.974" width="0.1524" layer="91"/>
+<label x="128.27" y="45.974" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="COL3" class="0">
 <segment>
 <pinref part="ESP32" gate="G$1" pin="SD1"/>
-<wire x1="123.19" y1="40.894" x2="138.43" y2="40.894" width="0.1524" layer="91"/>
-<label x="133.35" y="40.894" size="1.778" layer="95"/>
+<wire x1="123.19" y1="40.894" x2="133.35" y2="40.894" width="0.1524" layer="91"/>
+<label x="128.27" y="40.894" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="COL2" class="0">
 <segment>
 <pinref part="ESP32" gate="G$1" pin="SD0"/>
-<wire x1="123.19" y1="38.354" x2="138.43" y2="38.354" width="0.1524" layer="91"/>
-<label x="133.35" y="38.354" size="1.778" layer="95"/>
+<wire x1="123.19" y1="38.354" x2="133.35" y2="38.354" width="0.1524" layer="91"/>
+<label x="128.27" y="38.354" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="COL1" class="0">
 <segment>
 <pinref part="ESP32" gate="G$1" pin="CLK"/>
-<wire x1="123.19" y1="35.814" x2="138.43" y2="35.814" width="0.1524" layer="91"/>
-<label x="133.35" y="35.814" size="1.778" layer="95"/>
+<wire x1="123.19" y1="35.814" x2="133.35" y2="35.814" width="0.1524" layer="91"/>
+<label x="128.27" y="35.814" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
@@ -9636,7 +9636,7 @@ Source: http://www.osram.convergy.de/</description>
 <approved hash="104,2,81.28,162.56,WS2,VDD,VCC,,,"/>
 <approved hash="104,2,119.38,162.56,WS3,VDD,VCC,,,"/>
 <approved hash="113,1,84.3957,156.718,LED1,,,,,"/>
-<approved hash="113,1,23.6118,118.618,LIPO,,,,,"/>
+<approved hash="113,1,25.3898,122.174,LIPO,,,,,"/>
 <approved hash="113,1,19.8967,94.6506,BATT,,,,,"/>
 <approved hash="113,1,28.2787,11.3386,SV1,,,,,"/>
 <approved hash="113,1,61.2987,11.3386,SV2,,,,,"/>
