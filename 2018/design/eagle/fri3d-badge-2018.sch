@@ -8644,8 +8644,8 @@ Source: http://www.osram.convergy.de/</description>
 <instance part="GND3" gate="1" x="76.454" y="112.268"/>
 <instance part="GND4" gate="1" x="137.414" y="112.268"/>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
-<instance part="LIPO" gate="G$1" x="23.114" y="117.348" rot="R90"/>
-<instance part="GND5" gate="1" x="30.734" y="112.268"/>
+<instance part="LIPO" gate="G$1" x="24.892" y="120.904" rot="R90"/>
+<instance part="GND5" gate="1" x="32.512" y="115.824"/>
 <instance part="GND6" gate="1" x="39.37" y="169.926"/>
 <instance part="U$5" gate="G$1" x="21.59" y="164.846" rot="R180"/>
 <instance part="USB-UART" gate="G$1" x="231.394" y="137.668"/>
@@ -8716,8 +8716,8 @@ Source: http://www.osram.convergy.de/</description>
 <net name="VBAT" class="0">
 <segment>
 <pinref part="LIPO" gate="G$1" pin="+"/>
-<wire x1="28.194" y1="119.888" x2="33.274" y2="119.888" width="0.1524" layer="91"/>
-<label x="28.194" y="119.888" size="1.778" layer="95"/>
+<wire x1="29.972" y1="123.444" x2="35.052" y2="123.444" width="0.1524" layer="91"/>
+<label x="29.972" y="123.444" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="CHRG" gate="G$1" pin="VBAT"/>
@@ -8751,8 +8751,8 @@ Source: http://www.osram.convergy.de/</description>
 <segment>
 <pinref part="LIPO" gate="G$1" pin="-"/>
 <pinref part="GND5" gate="1" pin="GND"/>
-<wire x1="28.194" y1="117.348" x2="30.734" y2="117.348" width="0.1524" layer="91"/>
-<wire x1="30.734" y1="117.348" x2="30.734" y2="114.808" width="0.1524" layer="91"/>
+<wire x1="29.972" y1="120.904" x2="32.512" y2="120.904" width="0.1524" layer="91"/>
+<wire x1="32.512" y1="120.904" x2="32.512" y2="118.364" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND2" gate="1" pin="GND"/>
