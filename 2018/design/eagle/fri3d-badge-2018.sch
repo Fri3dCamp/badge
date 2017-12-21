@@ -8628,6 +8628,7 @@ Source: http://www.osram.convergy.de/</description>
 <text x="154.94" y="22.86" size="1.778" layer="97">RGB LEDs</text>
 <text x="2.54" y="2.54" size="1.778" layer="97">Servo headers</text>
 <text x="233.68" y="22.86" size="1.778" layer="97">Power debug headers</text>
+<text x="2.54" y="81.28" size="1.778" layer="97">Battery pack connector/header</text>
 </plain>
 <instances>
 <instance part="R1" gate="G$1" x="94.234" y="152.908"/>
