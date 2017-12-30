@@ -8500,7 +8500,7 @@ Source: http://www.osram.convergy.de/</description>
 </class>
 </classes>
 <parts>
-<part name="R1" library="passive" deviceset="RESISTOR" device="0805-RES" value="64.9"/>
+<part name="R1" library="passive" deviceset="RESISTOR" device="0805-RES" value="220"/>
 <part name="R2" library="passive" deviceset="RESISTOR" device="0805-RES" value="10K"/>
 <part name="C1" library="passive" deviceset="CAP" device="0805" value="4.7uF"/>
 <part name="C2" library="passive" deviceset="CAP" device="0805" value="4.7uF"/>
@@ -8524,15 +8524,15 @@ Source: http://www.osram.convergy.de/</description>
 <part name="L1" library="SparkFun-Coils" library_urn="urn:adsk.eagle:library:512" deviceset="INDUCTOR" device="-0805-3.3UH" package3d_urn="urn:adsk.eagle:package:37579/1" value=""/>
 <part name="R3" library="passive" deviceset="RESISTOR" device="0805-RES" value="27"/>
 <part name="R4" library="passive" deviceset="RESISTOR" device="0805-RES" value="27"/>
-<part name="C6" library="passive" deviceset="CAP" device="0805" value="47pf"/>
+<part name="C6" library="passive" deviceset="CAP" device="0805" value="47pF"/>
 <part name="C7" library="passive" deviceset="CAP" device="0805" value="47pF"/>
 <part name="GND8" library="setup" deviceset="GND" device=""/>
-<part name="C8" library="passive" deviceset="CAP" device="0805" value="10nF"/>
+<part name="C8" library="passive" deviceset="CAP" device="0805" value="0.01uF"/>
 <part name="GND9" library="setup" deviceset="GND" device=""/>
-<part name="C9" library="passive" deviceset="CAP" device="0805" value="100nF"/>
+<part name="C9" library="passive" deviceset="CAP" device="0805" value="0.1uF"/>
 <part name="GND10" library="setup" deviceset="GND" device=""/>
 <part name="C10" library="passive" deviceset="CAP" device="0805" value="4.7uF"/>
-<part name="C11" library="passive" deviceset="CAP" device="0805" value="100nF"/>
+<part name="C11" library="passive" deviceset="CAP" device="0805" value="0.1uF"/>
 <part name="ESP32" library="esp32" deviceset="ESP-32S" device=""/>
 <part name="GND11" library="setup" deviceset="GND" device=""/>
 <part name="GND12" library="setup" deviceset="GND" device=""/>
