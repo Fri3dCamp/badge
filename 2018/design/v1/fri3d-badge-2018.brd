@@ -1013,7 +1013,7 @@ Your Eurocircuits Team
 </element>
 <element name="C8" library="passive" package="0805" value="0.01uF" x="13.197" y="4.064" smashed="yes" rot="R90">
 <attribute name="NAME" x="13.6415" y="2.413" size="0.4064" layer="25" rot="R180"/>
-<attribute name="VALUE" x="14.594" y="3.048" size="0.4064" layer="25" rot="R90"/>
+<attribute name="VALUE" x="12.181" y="1.524" size="0.4064" layer="25"/>
 </element>
 <element name="C9" library="passive" package="0805" value="0.1uF" x="14.097" y="9.387" smashed="yes" rot="R270">
 <attribute name="NAME" x="14.9225" y="10.149" size="0.4064" layer="25"/>
