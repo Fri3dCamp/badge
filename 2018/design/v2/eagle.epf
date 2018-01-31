@@ -1,5 +1,5 @@
 [Eagle]
-Version="08 05 01"
+Version="08 06 00"
 Platform="Mac OS X"
 Globals="Globals"
 Desktop="Desktop"
@@ -364,9 +364,13 @@ UsedLibrary="/Users/xtof/Workspace/eagle_personal_libraries/ic.lbr"
 UsedLibrary="/Users/xtof/Workspace/eagle_personal_libraries/led.lbr"
 UsedLibrary="/Users/xtof/Workspace/eagle_personal_libraries/particle.lbr"
 UsedLibrary="/Users/xtof/Workspace/eagle_personal_libraries/passive.lbr"
+UsedLibrary="/Users/xtof/Workspace/eagle_personal_libraries/power.lbr"
 UsedLibrary="/Users/xtof/Workspace/eagle_personal_libraries/rpi.lbr"
 UsedLibrary="/Users/xtof/Workspace/eagle_personal_libraries/setup.lbr"
+UsedLibrary="/Users/xtof/Workspace/eagle_personal_libraries/switches.lbr"
 UsedLibrary="/Users/xtof/Workspace/eagle_personal_libraries/xtal.lbr"
+UsedLibrary="/Users/xtof/Workspace/eagle_personal_libraries/sound.lbr"
+UsedLibrary="/Users/xtof/Workspace/eagle_personal_libraries/mosfet.lbr"
 
 [Win_1]
 Type="Control Panel"
@@ -392,7 +396,7 @@ DimensionExtWidths=" 0.127 0.254 0.1 0.13 0.26 0"
 DimensionExtLengths=" 1.27 2.54 1 2 3 0"
 DimensionExtOffsets=" 1.27 2.54 1 2 3 0"
 SmdSizes=" 0.3048 0.1524 0.4064 0.2032 0.6096 0.3048 0.8128 0.4064 1.016 0.508 1.27 0.6604 1.4224 0.7112 1.6764 0.8128 1.778 0.9144 1.9304 0.9652 2.1844 1.0668 2.54 1.27 3.81 1.9304 5.08 2.54 6.4516 3.2512 1.27 0.635"
-WireBend=4
+WireBend=0
 WireBendSet=31
 WireCap=1
 MiterStyle=0
@@ -422,13 +426,13 @@ Sheet="1"
 Type="Board Editor"
 Number=2
 File="fri3d-badge-2018.brd"
-View="-11.9775 -9.86496 94.2427 71.617"
-WireWidths=" 0.0762 0.1016 0.127 0.15 0.2 0.2032 0.254 0.3048 0.4064 0.508 0.6096 0.8128 1.016 1.27 2.54 0.1524"
+View="-12.8506 -8.62382 82.8586 72.435"
+WireWidths=" 0.0762 0.1016 0.127 0.15 0.2 0.2032 0.3048 0.4064 0.508 0.6096 0.8128 1.016 1.27 2.54 0.1524 0.254"
 PadDiameters=" 0.254 0.3048 0.4064 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0"
 PadDrills=" 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.65 0.7 0.75 0.8 0.85 0.9 1 0.6"
 ViaDiameters=" 0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.9 0.95 1 1.05 1.1 1.15 1.2 1.3 0"
-ViaDrills=" 0.2 0.3 0.4 0.45 0.5 0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.9 1 0.25 0.35"
-HoleDrills=" 0.2 0.25 0.3 0.4 0.45 0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.9 1 0.35 0.5"
+ViaDrills=" 0.2 0.25 0.3 0.4 0.45 0.5 0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.9 1 0.35"
+HoleDrills=" 0.2 0.25 0.3 0.4 0.45 0.5 0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.9 1 0.35"
 TextSizes=" 0.254 0.3048 0.4064 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.9304 2.1844 2.54 3.81 5.08 6.4516 1.778"
 PolygonSpacings=" 0.254 0.3048 0.4064 0.6096 0.8128 1.016 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 5.08 6.4516 1.27"
 PolygonIsolates=" 0.254 0.3048 0.4064 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0"
@@ -438,7 +442,7 @@ DimensionExtWidths=" 0.127 0.254 0.1 0.13 0.26 0"
 DimensionExtLengths=" 1.27 2.54 1 2 3 0"
 DimensionExtOffsets=" 1.27 2.54 1 2 3 0"
 SmdSizes=" 0.3048 0.1524 0.4064 0.2032 0.6096 0.3048 0.8128 0.4064 1.016 0.508 1.27 0.6604 1.4224 0.7112 1.6764 0.8128 1.778 0.9144 1.9304 0.9652 2.1844 1.0668 2.54 1.27 3.81 1.9304 5.08 2.54 6.4516 3.2512 1.27 0.635"
-WireBend=3
+WireBend=1
 WireBendSet=0
 WireCap=1
 MiterStyle=0
@@ -460,7 +464,7 @@ SwapLevel=0
 ArcDirection=0
 AddLevel=2
 PadsSameType=0
-Layer=1
+Layer=16
 
 [Desktop]
 Screen="1680 1050"
