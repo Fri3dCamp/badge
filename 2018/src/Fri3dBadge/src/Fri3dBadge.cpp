@@ -1,7 +1,7 @@
 #include "Fri3dBadge.h"
 
 // IO controle pinnen voor de vier servo's (hardware configuratie)
-int pinnen[4] = { 5, 16, 17, 18 };
+int pinnen[4] = { 23, 22, 19, 18 };
 
 Fri3dBadge::Fri3dBadge() {
 	// creëer servo objecten voor de 4 servos

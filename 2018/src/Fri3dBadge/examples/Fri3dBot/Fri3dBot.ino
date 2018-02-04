@@ -42,10 +42,10 @@ Fri3dBadge badge;
 
 // mapping naar functionele namen voor de 4 servo's
 enum {
-	ENKEL_LINKS   = SERVO1,
+	ENKEL_LINKS   = SERVO4,
 	ENKEL_RECHTS  = SERVO2,
 	BEEN_LINKS    = SERVO3,
-	BEEN_RECHTS   = SERVO4
+	BEEN_RECHTS   = SERVO1
 };
 
 void sta_neutraal() {
