@@ -1,0 +1,125 @@
+/* cards */
+
+.cards {
+  list-style: none;
+  padding: 10px 0 20px;
+  position: relative;
+}
+
+/* default 2 column */
+
+.cards > li {
+  margin-bottom: 10px;
+  position: relative;
+  width: 50%;
+  float: left;
+  clear: left;
+}
+
+.cards > li:nth-child(even) {
+  float: right; 
+  clear: right;
+}
+
+.card {
+  margin-left: 10px;
+  margin-right: 5px;
+  background-color: #00C9D2;
+}
+
+@media (min-width: 1100px) {
+  .cards > li:nth-child(even) .card {
+    margin-left: 5px;
+    margin-right: 10px;    
+  }
+  
+  .cards > li:nth-child(4n+0) .card {
+    background-color: #006F7D;
+    color: white;
+  }
+
+  .cards > li:nth-child(4n+0) .card a {
+    color: white;
+  }
+
+  .cards > li:nth-child(4n+1) .card {
+    background-color: #006F7D;
+    color: white;
+  }
+
+  .cards > li:nth-child(4n+1) .card a {
+    color: white;
+  }
+}
+
+/* single column */
+
+@media (max-width: 1100px) {
+
+  ul.cards > li {
+    width:100%;
+  }
+
+  ul.cards > li > .card {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .cards > li:nth-child(even) .card {
+    background-color: #006F7D;
+    color: white;
+  }
+
+  .cards > li:nth-child(even) .card a {
+    color: white;
+  }
+}
+
+/* solution for anchor too-far jump */
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: -73px;
+  visibility: hidden;
+}
+
+/* basic cards styling */
+
+.card {
+  border: none;
+  border-radius: 0.25rem;
+}
+
+.card-block {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 24px;
+  margin-top: 15px;
+}
+
+.card-subtitle {
+  font-size: 16px;
+  margin-bottom: 20px;
+  margin-top: -5px;
+}
+
+img.card-img-right {
+  width: 80px;
+  height: 80px;
+  float: right;
+}
+
+.card a {
+  color: black;
+}
+
+.card-img-top {
+  width: 100%;
+}
+
+.card .tweet {
+  padding: 5px;
+}
