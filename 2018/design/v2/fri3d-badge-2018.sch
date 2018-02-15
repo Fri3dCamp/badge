@@ -9935,8 +9935,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="J1" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_02" device="" package3d_urn="urn:adsk.eagle:package:38039/1"/>
 <part name="GND36" library="setup" deviceset="GND" device=""/>
 <part name="TP1" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="B1,27" package3d_urn="urn:adsk.eagle:package:27944/1"/>
-<part name="TP2" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="B1,27" package3d_urn="urn:adsk.eagle:package:27944/1"/>
-<part name="TP3" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="B1,27" package3d_urn="urn:adsk.eagle:package:27944/1"/>
 <part name="TP4" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="B1,27" package3d_urn="urn:adsk.eagle:package:27944/1"/>
 <part name="TP5" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="B1,27" package3d_urn="urn:adsk.eagle:package:27944/1"/>
 <part name="TP6" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="PTR1" device="B1,27" package3d_urn="urn:adsk.eagle:package:27944/1"/>
@@ -10173,8 +10171,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="J1" gate="G$1" x="63.5" y="114.3"/>
 <instance part="GND36" gate="1" x="84.074" y="109.728"/>
 <instance part="TP1" gate="G$1" x="113.284" y="168.148"/>
-<instance part="TP2" gate="G$1" x="46.482" y="171.958" rot="R180"/>
-<instance part="TP3" gate="G$1" x="42.926" y="171.958" rot="R180"/>
 <instance part="TP4" gate="G$1" x="39.116" y="171.45" rot="R180"/>
 <instance part="TP5" gate="G$1" x="137.922" y="168.148"/>
 <instance part="TP6" gate="G$1" x="255.524" y="147.828"/>
@@ -10210,6 +10206,12 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="R37" gate="G$1" pin="1"/>
 <wire x1="31.242" y1="135.89" x2="34.036" y2="135.89" width="0.1524" layer="91"/>
 <junction x="34.036" y="135.89"/>
+<wire x1="49.53" y1="135.89" x2="49.276" y2="135.89" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="GND"/>
+<wire x1="49.276" y1="135.89" x2="45.72" y2="135.89" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="154.94" x2="49.276" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="49.276" y1="154.94" x2="49.276" y2="135.89" width="0.1524" layer="91"/>
+<junction x="49.276" y="135.89"/>
 </segment>
 <segment>
 <pinref part="USB-TTL" gate="G$1" pin="GND@13"/>
@@ -10382,13 +10384,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <segment>
 <pinref part="USB" gate="G$1" pin="D+"/>
 <label x="25.4" y="163.83" size="1.778" layer="95"/>
-<wire x1="17.78" y1="163.83" x2="46.482" y2="163.83" width="0.1524" layer="91"/>
-<pinref part="TP2" gate="G$1" pin="TP"/>
-<wire x1="46.482" y1="169.418" x2="46.482" y2="163.83" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="163.83" x2="48.26" y2="163.83" width="0.1524" layer="91"/>
 <pinref part="U$2" gate="G$1" pin="IO2"/>
 <wire x1="48.26" y1="157.48" x2="48.26" y2="163.83" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="163.83" x2="46.482" y2="163.83" width="0.1524" layer="91"/>
-<junction x="46.482" y="163.83"/>
 </segment>
 <segment>
 <pinref part="R4" gate="G$1" pin="1"/>
@@ -10403,15 +10401,12 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <segment>
 <label x="25.4" y="166.37" size="1.778" layer="95"/>
 <pinref part="USB" gate="G$1" pin="D-"/>
-<wire x1="17.78" y1="166.37" x2="22.86" y2="166.37" width="0.1524" layer="91"/>
-<pinref part="TP3" gate="G$1" pin="TP"/>
-<wire x1="22.86" y1="166.37" x2="42.926" y2="166.37" width="0.1524" layer="91"/>
-<wire x1="42.926" y1="166.37" x2="48.26" y2="166.37" width="0.1524" layer="91"/>
-<wire x1="42.926" y1="169.418" x2="42.926" y2="166.37" width="0.1524" layer="91"/>
-<junction x="42.926" y="166.37"/>
+<wire x1="17.78" y1="166.37" x2="23.368" y2="166.37" width="0.1524" layer="91"/>
 <pinref part="U$2" gate="G$1" pin="IO3"/>
-<wire x1="22.86" y1="157.48" x2="22.86" y2="166.37" width="0.1524" layer="91"/>
-<junction x="22.86" y="166.37"/>
+<wire x1="23.368" y1="166.37" x2="48.26" y2="166.37" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="157.48" x2="23.368" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="23.368" y1="157.48" x2="23.368" y2="166.37" width="0.1524" layer="91"/>
+<junction x="23.368" y="166.37"/>
 </segment>
 <segment>
 <pinref part="R3" gate="G$1" pin="1"/>
@@ -10425,13 +10420,13 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <net name="USB-RAW" class="0">
 <segment>
 <pinref part="USB" gate="G$1" pin="VBUS"/>
-<wire x1="17.78" y1="168.91" x2="21.59" y2="168.91" width="0.1524" layer="91"/>
 <label x="25.4" y="168.91" size="1.778" layer="95"/>
 <pinref part="TP4" gate="G$1" pin="TP"/>
+<wire x1="17.78" y1="168.91" x2="21.59" y2="168.91" width="0.1524" layer="91"/>
 <wire x1="21.59" y1="168.91" x2="39.116" y2="168.91" width="0.1524" layer="91"/>
 <wire x1="39.116" y1="168.91" x2="40.64" y2="168.91" width="0.1524" layer="91"/>
 <junction x="39.116" y="168.91"/>
-<wire x1="49.276" y1="168.91" x2="39.116" y2="168.91" width="0.1524" layer="91"/>
+<wire x1="49.784" y1="168.91" x2="39.116" y2="168.91" width="0.1524" layer="91"/>
 <pinref part="U$2" gate="G$1" pin="VCC"/>
 <wire x1="22.86" y1="154.94" x2="21.59" y2="154.94" width="0.1524" layer="91"/>
 <wire x1="21.59" y1="154.94" x2="21.59" y2="168.91" width="0.1524" layer="91"/>
