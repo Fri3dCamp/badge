@@ -116,6 +116,14 @@ img.card-img-right {
   color: black;
 }
 
+.card-img {
+  display: block;
+  max-width: 100%; 
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .card-img-top {
   width: 100%;
 }

@@ -8,3 +8,18 @@ html, body {
   background-size: cover;
   background-color: #00707B;
 }
+
+.sponsor.info {
+  font-style: italic;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* solution for anchor too-far jump */
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: -73px;
+  visibility: hidden;
+}
