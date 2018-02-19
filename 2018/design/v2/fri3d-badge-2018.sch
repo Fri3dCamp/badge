@@ -10384,9 +10384,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <segment>
 <pinref part="USB" gate="G$1" pin="D+"/>
 <label x="25.4" y="163.83" size="1.778" layer="95"/>
-<wire x1="17.78" y1="163.83" x2="48.26" y2="163.83" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="IO2"/>
-<wire x1="48.26" y1="157.48" x2="48.26" y2="163.83" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="163.83" x2="22.86" y2="163.83" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="IO3"/>
+<wire x1="22.86" y1="163.83" x2="48.26" y2="163.83" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="157.48" x2="22.86" y2="163.83" width="0.1524" layer="91"/>
+<junction x="22.86" y="163.83"/>
 </segment>
 <segment>
 <pinref part="R4" gate="G$1" pin="1"/>
@@ -10401,12 +10403,10 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <segment>
 <label x="25.4" y="166.37" size="1.778" layer="95"/>
 <pinref part="USB" gate="G$1" pin="D-"/>
-<wire x1="17.78" y1="166.37" x2="23.368" y2="166.37" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="IO3"/>
-<wire x1="23.368" y1="166.37" x2="48.26" y2="166.37" width="0.1524" layer="91"/>
-<wire x1="22.86" y1="157.48" x2="23.368" y2="157.48" width="0.1524" layer="91"/>
-<wire x1="23.368" y1="157.48" x2="23.368" y2="166.37" width="0.1524" layer="91"/>
-<junction x="23.368" y="166.37"/>
+<wire x1="17.78" y1="166.37" x2="49.53" y2="166.37" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="IO2"/>
+<wire x1="48.26" y1="157.48" x2="49.53" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="49.53" y1="157.48" x2="49.53" y2="166.37" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R3" gate="G$1" pin="1"/>
@@ -10914,6 +10914,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="TP1" gate="G$1" pin="TP"/>
 <wire x1="113.284" y1="170.688" x2="99.314" y2="170.688" width="0.1524" layer="91"/>
 <junction x="113.284" y="170.688"/>
+<label x="93.218" y="171.704" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -12171,14 +12172,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <approved hash="104,1,101.854,155.448,USB-TTL,VCC,USB-FILTERED,,,"/>
 <approved hash="202,1,137.414,140.208,USB-TTL,!CTS!,,,,"/>
 <approved hash="104,2,17.78,162.56,MCU,3V3,3V3_MCU,,,"/>
-<approved hash="104,2,76.962,81.788,WS1,VDD,EXP_5V,,,"/>
-<approved hash="104,2,71.882,56.388,WS1,GND,EXP_GND,,,"/>
-<approved hash="104,2,107.442,81.788,WS2,VDD,EXP_5V,,,"/>
-<approved hash="104,2,102.362,56.388,WS2,GND,EXP_GND,,,"/>
-<approved hash="104,2,137.922,81.788,WS3,VDD,EXP_5V,,,"/>
-<approved hash="104,2,132.842,56.388,WS3,GND,EXP_GND,,,"/>
-<approved hash="110,2,84.582,64.008,EXP_GND,N$17,,,,"/>
-<approved hash="110,2,115.062,64.008,EXP_GND,N$60,,,,"/>
 <approved hash="113,1,237.304,164.338,RED,,,,,"/>
 <approved hash="113,1,247.464,164.338,GREEN,,,,,"/>
 <approved hash="113,2,162.882,163.83,LED1,,,,,"/>
@@ -12223,7 +12216,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <approved hash="113,2,85.6827,97.9526,SV4,,,,,"/>
 <approved hash="113,2,123.275,98.4606,SEN,,,,,"/>
 <approved hash="113,2,16.8487,68.7426,EXP,,,,,"/>
-<approved hash="113,2,48.3447,67.9806,BDG,,,,,"/>
 <approved hash="113,1,26.1906,100.584,Q1,,,,,"/>
 <approved hash="113,1,67.9027,117.003,J1,,,,,"/>
 <approved hash="113,1,250.783,61.6306,J2,,,,,"/>
