@@ -2,6 +2,7 @@
   <a id="{{ post.title | slugify }}" class="anchor"></a>
   <div class="card">
     <div class="card-block">
+    <div class="timestamp">{{ post.date | date: '%d/%m/%Y' }}</div>
       {{ post.content }}
     </div>
   </div>

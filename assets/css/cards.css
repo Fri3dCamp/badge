@@ -42,6 +42,10 @@
     color: white;
   }
 
+  .cards > li:nth-child(4n+0) .card .timestamp {
+    color: #bbb;
+  }
+
   .cards > li:nth-child(4n+1) .card {
     background-color: #006F7D;
     color: white;
@@ -50,6 +54,11 @@
   .cards > li:nth-child(4n+1) .card a {
     color: white;
   }
+
+  .cards > li:nth-child(4n+1) .card .timestamp {
+    color: #bbb;
+  }
+
 }
 
 /* single column */
@@ -72,6 +81,10 @@
 
   .cards > li:nth-child(even) .card a {
     color: white;
+  }
+
+  .cards > li:nth-child(even) .card .timestamp {
+    color: #ccc;
   }
 }
 
@@ -135,4 +148,11 @@ img.card-img-right {
 
 .card .tweet {
   padding: 5px;
+}
+
+.card .timestamp {
+  float:right ;
+  margin-right: 10px;
+  margin-top: 15px;
+  color: #888;
 }
