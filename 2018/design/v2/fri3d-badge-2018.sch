@@ -261,15 +261,15 @@ Standard A4 size frame in Landscape</description>
 <library name="connector">
 <packages>
 <package name="USB_MICRO_B">
-<smd name="1" x="-1.3" y="0" dx="0.4" dy="1.05" layer="1"/>
-<smd name="2" x="-0.65" y="0" dx="0.4" dy="1.05" layer="1"/>
-<smd name="3" x="0" y="0" dx="0.4" dy="1.05" layer="1"/>
-<smd name="4" x="0.65" y="0" dx="0.4" dy="1.05" layer="1"/>
-<smd name="5" x="1.3" y="0" dx="0.4" dy="1.05" layer="1"/>
-<pad name="9" x="-4.85" y="-0.325" drill="1.7"/>
-<pad name="6" x="4.85" y="-0.325" drill="1.7"/>
-<pad name="8" x="-4.85" y="-3.625" drill="1.7"/>
-<pad name="7" x="4.85" y="-3.625" drill="1.7"/>
+<smd name="VBUS" x="-1.3" y="0" dx="0.4" dy="1.05" layer="1"/>
+<smd name="D-" x="-0.65" y="0" dx="0.4" dy="1.05" layer="1"/>
+<smd name="D+" x="0" y="0" dx="0.4" dy="1.05" layer="1"/>
+<smd name="ID" x="0.65" y="0" dx="0.4" dy="1.05" layer="1"/>
+<smd name="GND" x="1.3" y="0" dx="0.4" dy="1.05" layer="1"/>
+<pad name="P$6" x="-4.85" y="-0.325" drill="1.7"/>
+<pad name="P$7" x="4.85" y="-0.325" drill="1.7"/>
+<pad name="P$8" x="-4.85" y="-3.625" drill="1.7"/>
+<pad name="P$9" x="4.85" y="-3.625" drill="1.7"/>
 <wire x1="-4.85" y1="-5.375" x2="4.85" y2="-5.375" width="0.127" layer="20"/>
 <wire x1="-3.675" y1="-5.225" x2="-3.675" y2="-0.875" width="0.127" layer="21"/>
 <wire x1="-3.675" y1="-0.875" x2="3.675" y2="-0.875" width="0.127" layer="21"/>
@@ -290,7 +290,7 @@ Standard A4 size frame in Landscape</description>
 <pin name="GND" x="10.16" y="-5.08" length="middle" rot="R180"/>
 <text x="-4.826" y="8.382" size="1.778" layer="94">&gt;NAME</text>
 <pin name="SHLD" x="10.16" y="-7.62" length="middle" rot="R180"/>
-<text x="-5.08" y="-12.7" size="1.778" layer="94">&gt; VALUE</text>
+<text x="-5.08" y="-12.7" size="1.778" layer="94">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -301,12 +301,12 @@ Standard A4 size frame in Landscape</description>
 <devices>
 <device name="" package="USB_MICRO_B">
 <connects>
-<connect gate="G$1" pin="D+" pad="3"/>
-<connect gate="G$1" pin="D-" pad="2"/>
-<connect gate="G$1" pin="GND" pad="5"/>
-<connect gate="G$1" pin="ID" pad="4"/>
-<connect gate="G$1" pin="SHLD" pad="6 7 8 9"/>
-<connect gate="G$1" pin="VBUS" pad="1"/>
+<connect gate="G$1" pin="D+" pad="D+"/>
+<connect gate="G$1" pin="D-" pad="D-"/>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="ID" pad="ID"/>
+<connect gate="G$1" pin="SHLD" pad="P$6 P$7 P$8 P$9"/>
+<connect gate="G$1" pin="VBUS" pad="VBUS"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -3150,7 +3150,7 @@ Source: http://www.zetex.com/3.0/pdf/ZXSC300.pdf</description>
 <gate name="G$1" symbol="SX1308" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="SOT23-5">
+<device name="" package="SOT23-6">
 <connects>
 <connect gate="G$1" pin="EN" pad="4"/>
 <connect gate="G$1" pin="FB" pad="3"/>
