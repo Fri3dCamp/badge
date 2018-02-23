@@ -22,11 +22,15 @@ Developer Programma** ;-)
 
 #### Docs
 
-We zorgen weldra voor gedetailleerde informatie. Voorlopig kan je al rondneuzen in onze [Github Repository](https://github.com/Fri3dCamp/badge).
+We zorgen weldra voor gedetailleerde informatie. Voorlopig kan je al rondneuzen
+in onze [Github Repository](https://github.com/Fri3dCamp/badge).
 
 #### Planning
 
-We zijn op dit ogenblik in blijde verwachting van de levering van de PCBs voor prototype 2. Eens ze voorzien zijn van componenten en we de werking kunnen valideren, gaan we op pad om samen met jullie jullie projecten te testen en verder te integreren.
+We zijn op dit ogenblik in blijde verwachting van de levering van de PCBs voor
+prototype 2. Eens ze voorzien zijn van componenten en we de werking kunnen
+valideren, gaan we op pad om samen met jullie jullie projecten te testen en
+verder te integreren.
 
 * Maart - **Badge Roadshow** met prototype 2
 * April - Afwerken **finale design** en order PCBs bij [EuroCircuits](https://www.eurocircuits.com)
