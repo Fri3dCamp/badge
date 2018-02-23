@@ -3,6 +3,8 @@
   <div class="card">
     <div class="card-block">
     <div class="timestamp">{{ post.date | date: '%d/%m/%Y' }}</div>
+      <h4>{{ post.title }}</h4>
+      <h5>{{ post.subtitle }}</h5>
       {{ post.content }}
     </div>
   </div>
