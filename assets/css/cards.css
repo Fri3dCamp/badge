@@ -42,7 +42,8 @@
     color: white;
   }
 
-  .cards > li:nth-child(4n+0) .card .timestamp {
+  .cards > li:nth-child(4n+0) .card .timestamp,
+  .cards > li:nth-child(4n+0) .card .timestamp a {
     color: #bbb;
   }
 
@@ -55,7 +56,8 @@
     color: white;
   }
 
-  .cards > li:nth-child(4n+1) .card .timestamp {
+  .cards > li:nth-child(4n+1) .card .timestamp,
+  .cards > li:nth-child(4n+1) .card .timestamp a {
     color: #bbb;
   }
 
@@ -83,7 +85,8 @@
     color: white;
   }
 
-  .cards > li:nth-child(even) .card .timestamp {
+  .cards > li:nth-child(even) .card .timestamp,
+  .cards > li:nth-child(even) .card .timestamp a {
     color: #ccc;
   }
 }
@@ -150,9 +153,13 @@ img.card-img-right {
   padding: 5px;
 }
 
-.card .timestamp {
+.card .timestamp a {
   float:right ;
   margin-right: 10px;
   margin-top: 15px;
   color: #888;
+}
+
+.card.archive {
+  margin: 20px;
 }

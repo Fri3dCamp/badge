@@ -1,1 +1,8 @@
 repository : "Fri3dCamp/badge"
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
