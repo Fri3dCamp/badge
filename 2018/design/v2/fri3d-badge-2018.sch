@@ -11751,6 +11751,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <junction x="68.58" y="7.62"/>
 <label x="2.54" y="7.62" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="MCU" gate="G$1" pin="IO23"/>
+<wire x1="53.34" y1="162.56" x2="71.12" y2="162.56" width="0.1524" layer="91"/>
+<label x="58.42" y="162.56" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="LEDS_RCK" class="0">
 <segment>
@@ -11772,6 +11777,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <label x="2.54" y="5.08" size="1.778" layer="95"/>
 <pinref part="C19" gate="G$1" pin="2"/>
 <junction x="127" y="15.24"/>
+</segment>
+<segment>
+<pinref part="MCU" gate="G$1" pin="IO22"/>
+<wire x1="53.34" y1="160.02" x2="71.12" y2="160.02" width="0.1524" layer="91"/>
+<label x="58.42" y="160.02" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -11912,6 +11922,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="55.88" y1="17.78" x2="55.88" y2="2.54" width="0.1524" layer="91"/>
 <junction x="55.88" y="2.54"/>
 <label x="2.54" y="2.54" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="MCU" gate="G$1" pin="IO21"/>
+<wire x1="53.34" y1="152.4" x2="71.12" y2="152.4" width="0.1524" layer="91"/>
+<label x="53.34" y="152.4" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TX" class="0">
