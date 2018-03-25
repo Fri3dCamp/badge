@@ -2,8 +2,8 @@
 
 #include <WiFi.h>
 
-const char* ssid     = "NSAintel2C4team";
-const char* password = "100%wifi";
+const char* ssid     = "WindyCloud";
+const char* password = "100%wireless";
 
 WiFiServer server(80);
 
