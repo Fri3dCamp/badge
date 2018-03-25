@@ -22,6 +22,8 @@ class Matrix {
       }
     }
     void start();
+    void write(char c, int x);
+    void write(char c);
 
 	private:
     // screen is encoded as a byte per column

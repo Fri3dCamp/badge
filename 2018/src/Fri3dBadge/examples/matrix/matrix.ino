@@ -25,8 +25,13 @@ void render_swipe() {
 }
 
 void loop() {
-  render_random_pixel();
-  delay(500);
+  // render_random_pixel();
+  badge.matrix.clear();
+  badge.matrix.write('A');
+  delay(2000);
+  badge.matrix.clear();
+  badge.matrix.write('B', 8);
+  delay(2000);
 }
 
 void render_random_pixel() {

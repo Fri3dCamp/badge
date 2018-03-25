@@ -14,6 +14,23 @@ const int MATRIX_LEFT_ROWS[][5] = {
   { 8, 9, 10, 11, 7 }        // left
 };
 
+// font, encoded as three bytes for three columns per char
+// hint: rotate your editor/screen 90 degrees to the left to "see" chars
+const int FONT[][3] = {
+  // A
+  {
+    0b00011110,
+    0b00000101,
+    0b00011110
+  },
+  // B
+  {
+    0b00011111,
+    0b00010101,
+    0b00001010
+  }
+};
+
 Matrix::Matrix() {
   //set pins to output so you can control the shift register
   pinMode(LED_LATCH_PIN,  OUTPUT);
@@ -48,6 +65,16 @@ void Matrix::clear() {
       this->clear(x, y);
     }
   }
+}
+
+void Matrix::write(char c) {
+  this->write(c, 0);
+}
+
+void Matrix::write(char c, int x) {
+  this->matrix[x]   = FONT[c-'A'][0];
+  this->matrix[x+1] = FONT[c-'A'][1];
+  this->matrix[x+2] = FONT[c-'A'][2];
 }
 
 // private
