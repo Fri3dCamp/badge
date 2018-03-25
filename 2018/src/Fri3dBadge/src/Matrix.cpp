@@ -4,19 +4,19 @@
 
 #include "config.h"
 
-const int MATRIX_LEFT_COLS[][7] = {
+const uint8_t MATRIX_LEFT_COLS[][7] = {
   { 8, 7, 4, 6, 9, 10, 11 }, // right
   { 0, 1, 2, 3, 4,  5,  6 }  // left
 };
 
-const int MATRIX_LEFT_ROWS[][5] = {
+const uint8_t MATRIX_LEFT_ROWS[][5] = {
   { 0, 3,  1,  2, 5 },       // right (reversed)
   { 8, 9, 10, 11, 7 }        // left
 };
 
 // font, encoded as three bytes for three columns per char
 // hint: rotate your editor/screen 90 degrees to the left to "see" chars
-const int FONT[][3] = {
+const uint8_t FONT[][3] = {
   // A
   {
     0b00011110,
@@ -50,18 +50,18 @@ void Matrix::start() {
   pthread_create(&video_thread, NULL, &Matrix::refresh_screen, this);
 }
 
-void Matrix::set(int x, int y) {
+void Matrix::set(uint8_t x, uint8_t y) {
   this->matrix[x] |= 1UL << y;
 }
 
-void Matrix::clear(int x, int y) {
+void Matrix::clear(uint8_t x, uint8_t y) {
   this->matrix[x] &= ~(1UL << y);
 }
 
 void Matrix::clear() {
   // TODO improve with memcpy ???
-  for(int y=0; y<5; y++) {
-    for(int x=0; x<14; x++) {
+  for(uint8_t y=0; y<5; y++) {
+    for(uint8_t x=0; x<14; x++) {
       this->clear(x, y);
     }
   }
@@ -71,7 +71,7 @@ void Matrix::write(char c) {
   this->write(c, 0);
 }
 
-void Matrix::write(char c, int x) {
+void Matrix::write(char c, uint8_t x) {
   this->matrix[x]   = FONT[c-'A'][0];
   this->matrix[x+1] = FONT[c-'A'][1];
   this->matrix[x+2] = FONT[c-'A'][2];
@@ -83,8 +83,8 @@ void Matrix::write(char c, int x) {
 
 // function to perform screen refresh
 void Matrix::render() {
-  for(int y=0; y<5; y++) {
-    for(int x=0; x<7; x++) {
+  for(uint8_t y=0; y<5; y++) {
+    for(uint8_t x=0; x<7; x++) {
       int right = BITSET(this->matrix[x],  y) ? pixel(x, y, RIGHT_EYE) : 0;
       int left  = BITSET(this->matrix[x+7],y) ? pixel(x, y, LEFT_EYE ) : 0;
       if( right || left ) {
@@ -105,7 +105,7 @@ void Matrix::render( int right, int left ) {
   digitalWrite(LED_LATCH_PIN, HIGH);
 }
 
-int Matrix::pixel(int x, int y, int eye) {
+int Matrix::pixel(uint8_t x, uint8_t y, uint8_t eye) {
   // TODO do dynamically based on config of pins
   int e = 0b000001111111;            // all rows low, all cols high
   if(eye == RIGHT_EYE) {  e = 0b111111010000; }
