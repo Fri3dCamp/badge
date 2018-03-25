@@ -24,7 +24,8 @@ class Matrix {
     void start();
 
 	private:
-    int matrix[5][14] = { { 0 } };
+    // screen is encoded as a byte per column
+    int matrix[14] = { 0 };
     void render(int right, int left);
     int pixel(int x, int y, int eye);
 };

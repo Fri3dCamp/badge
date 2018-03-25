@@ -34,11 +34,11 @@ void Matrix::start() {
 }
 
 void Matrix::set(int x, int y) {
-  this->matrix[y][x] = 1;
+  this->matrix[x] |= 1UL << y;
 }
 
 void Matrix::clear(int x, int y) {
-  this->matrix[y][x] = 0;  
+  this->matrix[x] &= ~(1UL << y);
 }
 
 void Matrix::clear() {
@@ -50,15 +50,19 @@ void Matrix::clear() {
   }
 }
 
+// private
+
+#define BITSET(var,pos) ((var) & (1<<(pos)))
+
 // function to perform screen refresh
 void Matrix::render() {
   for(int y=0; y<5; y++) {
     for(int x=0; x<7; x++) {
-      int right = this->matrix[y][x]   == 1 ? pixel(x, y, RIGHT_EYE) : 0;
-      int left  = this->matrix[y][x+7] == 1 ? pixel(x, y, LEFT_EYE ) : 0;
+      int right = BITSET(this->matrix[x],  y) ? pixel(x, y, RIGHT_EYE) : 0;
+      int left  = BITSET(this->matrix[x+7],y) ? pixel(x, y, LEFT_EYE ) : 0;
       if( right || left ) {
         this->render( right, left );
-        delayMicroseconds(10); // TODO optimize value for light intensity
+        // delayMicroseconds(10); // TODO optimize value for light intensity
       }
     }
   }
