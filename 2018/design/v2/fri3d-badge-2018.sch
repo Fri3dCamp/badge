@@ -9817,8 +9817,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="GND6" library="setup" deviceset="GND" device=""/>
 <part name="R" library="switches" deviceset="SWITCH-MOMENTARY-4.5MM" device=""/>
 <part name="D" library="switches" deviceset="SWITCH-MOMENTARY-4.5MM" device=""/>
-<part name="B" library="switches" deviceset="SWITCH-MOMENTARY-4.5MM" device=""/>
 <part name="A" library="switches" deviceset="SWITCH-MOMENTARY-4.5MM" device=""/>
+<part name="B" library="switches" deviceset="SWITCH-MOMENTARY-4.5MM" device=""/>
 <part name="GND11" library="setup" deviceset="GND" device=""/>
 <part name="GND12" library="setup" deviceset="GND" device=""/>
 <part name="R8" library="passive" deviceset="RESISTOR" device="0805-RES" value="10K"/>
@@ -10125,8 +10125,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="GND6" gate="1" x="203.454" y="111.76"/>
 <instance part="R" gate="G$1" x="30.48" y="68.58"/>
 <instance part="D" gate="G$1" x="30.48" y="50.8"/>
-<instance part="B" gate="G$1" x="30.48" y="38.1"/>
-<instance part="A" gate="G$1" x="30.48" y="17.78"/>
+<instance part="A" gate="G$1" x="30.48" y="38.1"/>
+<instance part="B" gate="G$1" x="30.48" y="17.78"/>
 <instance part="GND11" gate="1" x="43.434" y="64.008"/>
 <instance part="GND12" gate="1" x="43.434" y="46.228"/>
 <instance part="R8" gate="G$1" x="23.114" y="73.66" rot="R90"/>
@@ -10656,12 +10656,12 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <label x="5.08" y="60.96" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="B" gate="G$1" pin="2"/>
+<pinref part="A" gate="G$1" pin="2"/>
 <wire x1="35.56" y1="38.1" x2="45.72" y2="38.1" width="0.1524" layer="91"/>
 <label x="40.64" y="38.1" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="A" gate="G$1" pin="2"/>
+<pinref part="B" gate="G$1" pin="2"/>
 <wire x1="35.56" y1="17.78" x2="45.72" y2="17.78" width="0.1524" layer="91"/>
 <label x="40.64" y="17.78" size="1.778" layer="95"/>
 </segment>
@@ -10687,7 +10687,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </net>
 <net name="BUTTON-A" class="0">
 <segment>
-<pinref part="B" gate="G$1" pin="1"/>
+<pinref part="A" gate="G$1" pin="1"/>
 <wire x1="25.4" y1="38.1" x2="23.114" y2="38.1" width="0.1524" layer="91"/>
 <label x="5.08" y="38.1" size="1.778" layer="95"/>
 <pinref part="R10" gate="G$1" pin="2"/>
@@ -10697,7 +10697,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </net>
 <net name="BUTTON-B" class="0">
 <segment>
-<pinref part="A" gate="G$1" pin="1"/>
+<pinref part="B" gate="G$1" pin="1"/>
 <wire x1="25.4" y1="17.78" x2="23.114" y2="17.78" width="0.1524" layer="91"/>
 <label x="5.08" y="17.78" size="1.778" layer="95"/>
 <pinref part="R11" gate="G$1" pin="2"/>
