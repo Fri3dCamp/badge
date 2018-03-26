@@ -3,6 +3,12 @@
 #ifndef __CONFIG_H
 #define __CONFIG_H
 
+// Button pinnen
+
+#define BUTTON_A_PIN   12
+#define BUTTON_B_PIN    4
+#define BUTTON_D_PIN    0
+
 // LED matrix pinnen
 
 #define LED_LATCH_PIN  22

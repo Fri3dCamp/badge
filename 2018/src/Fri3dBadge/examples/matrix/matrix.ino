@@ -5,6 +5,10 @@ Fri3dBadge badge;
 void setup() {
   badge.matrix.start(); // if done before (e.g. in badge construction)
                         // blocks setup from starting ?! 
+
+  badge.button_a.on_click(&on_click_a);
+  badge.button_b.on_click(&on_click_b);
+
   render_swipe();
 }
 
@@ -24,14 +28,32 @@ void render_swipe() {
   }
 }
 
+bool show_a     = false;
+bool show_b     = false;
+bool text_dirty = false;
+
+void on_click_a() {
+  show_a = !show_a;
+  text_dirty = true;
+}
+
+void on_click_b() {
+  show_b = !show_b;  
+  text_dirty = true;
+}
+
+unsigned long last_pixel = 0;
+
 void loop() {
-  // render_random_pixel();
-  badge.matrix.clear();
-  badge.matrix.write('A');
-  delay(2000);
-  badge.matrix.clear();
-  badge.matrix.write('B', 8);
-  delay(2000);
+  if( text_dirty ) {
+    write();
+  }
+  unsigned long now = millis();
+  if( ! show_a && ! show_b && now - last_pixel > 500 ) {
+    render_random_pixel();
+    last_pixel = now;
+  }
+  delay(1); // needed to give threads chance to run ;-)
 }
 
 void render_random_pixel() {
@@ -40,4 +62,15 @@ void render_random_pixel() {
   x = random(14);
   y = random(5);
   badge.matrix.set(x, y);
+}
+
+void write() {
+  badge.matrix.clear();
+  if( show_a ) {
+    badge.matrix.write('A');
+  }
+  if( show_b ) {
+    badge.matrix.write('B', 8);
+  }
+  text_dirty = false;
 }

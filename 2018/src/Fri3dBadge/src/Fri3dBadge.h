@@ -3,6 +3,7 @@
 
 #include "Arduino.h"
 
+#include "AButton.h"
 #include "Servo.h"
 #include "Matrix.h"
 
@@ -17,6 +18,11 @@ class Fri3dBadge {
     
     // toegang tot screen matrix 5x14 via sub-object
     Matrix matrix;
+
+    // toegang to buttons
+    AButton button_a;
+    AButton button_b;
+    AButton button_d;
 
 	private:
 		Servo* servos[4];
