@@ -1,2 +1,0 @@
-Fri3dBadge  KEYWORD1
-rgb_set_color KEYWORD2
