@@ -26,6 +26,13 @@ esptool.py --chip esp32 --port /dev/cu.SLAB_USBtoUART write_flash -z 0x1000 <pat
 
 Once the process has finished you will have micropython available on the badge.
 
+## Invoking python commands
+A repl (python commandline) is available when connecting to the badge over usb. on mac and linux, the screen command allows you to access the repl by invoking:
+
+```
+screen /dev/cu.SLAB_USBtoUART 115200
+```
+
 ## Deploying programs
 To make interacting with the badge a bit easier, we are going to install a tool called ```ampy```. It was developed by adafruit to make interacting with circuitpython (a micropython adoption by adafruit) easier to work with.
 
