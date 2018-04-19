@@ -33,9 +33,9 @@ valideren, gaan we op pad om samen met jullie jullie projecten te testen en
 verder te integreren.
 
 * Maart - **Badge Roadshow** met prototype 2
-* April - Afwerken **finale design** en order PCBs bij [EuroCircuits](https://www.eurocircuits.com)
-* Mei - **Assemblage** van de badges door [Dekimo](http://www.dekimo.com)
-* Juni & Juli - Verdeling van **finale badges** aan de ontwikkelaars
+* Mei - Afwerken **finale design** en order PCBs bij [AQC](https://www.aqcbv.com/)
+* Juni - **Assemblage** van de badges door [Dekimo](http://www.dekimo.com)
+* Juli - Verdeling van **finale badges** aan de ontwikkelaars
 * Augustus - **Fri3d Camp** Badge **Live** !
 
 <br>
