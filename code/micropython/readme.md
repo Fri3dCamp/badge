@@ -15,3 +15,4 @@ De volgende hardware componenten zijn beschikbaar op de badge:
 Er zijn ook nog wat extra hardware mogelijkheden, maar daarvoor heb je extra hardware nodig:
  - Servo (Needs robo kit)
  - OLED display (Needs OLED screen)
+ - SDCard Storage (Needs SD card + connector)

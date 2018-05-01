@@ -25,10 +25,12 @@ class Matrices:
         else:
             self.right_matrix[y] |= (1 << x)
 
-    def clear(self):
+    def clear(self, matrix):
         for i in range(0, 5):
-            self.left_matrix[i] = 0
-            self.right_matrix[i] = 0
+            if (matrix == 0):
+                self.left_matrix[i] = 0
+            else:
+                self.right_matrix[i] = 0
 
 def video_thread_fn(data, clock, latch, left_matrix, right_matrix):
     print("video_thread: started")
@@ -44,13 +46,13 @@ def video_thread_fn(data, clock, latch, left_matrix, right_matrix):
             
             for x in range(0, 7):
                 shiftbit(~(right_matrix[y] >> x) & 1)
-            # print(" ")
+            
             for j in range(0, 5):
                 shiftbit(j == y)
-            # print("---")
+            
             for x in range(0, 7):
                 shiftbit(~(left_matrix[y] >> x) & 1)
-            # print(" ")
+            
             for j in range(0, 5):
                 shiftbit(j == y)
 
