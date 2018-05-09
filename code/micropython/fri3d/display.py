@@ -1,8 +1,7 @@
 import machine
-import math
 import _thread
-import time
 import array
+
 
 class Matrices:
     def __init__(self, latch=21, clock=4, data=2, enable=22, register_count=3):
@@ -17,20 +16,23 @@ class Matrices:
         self.left_matrix = array.array('I', [ 0 for _ in range(0, 5)]) 
         self.right_matrix = array.array('I', [ 0 for _ in range(0, 5)])
 
-        _thread.start_new_thread("video", video_thread_fn, (self.data, self.clock, self.latch, self.left_matrix, self.right_matrix))
+        _thread.start_new_thread(
+            "video", video_thread_fn, (self.data, self.clock, self.latch, self.left_matrix, self.right_matrix)
+        )
 
     def set(self, matrix, x, y):
-        if (matrix == 0):
+        if matrix == 0:
             self.left_matrix[y] |= (1 << x)
         else:
             self.right_matrix[y] |= (1 << x)
 
     def clear(self, matrix):
         for i in range(0, 5):
-            if (matrix == 0):
+            if matrix == 0:
                 self.left_matrix[i] = 0
             else:
                 self.right_matrix[i] = 0
+
 
 def video_thread_fn(data, clock, latch, left_matrix, right_matrix):
     print("video_thread: started")
