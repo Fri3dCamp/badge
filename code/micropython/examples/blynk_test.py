@@ -10,12 +10,12 @@ import time
 LED = Pin(2, Pin.OUT)
 
 # -- Connect to wifi
-wifi = Wifi("area3001", "")
+wifi = Wifi("area3001", "hackerspace")
 wifi.connect()
 wifi.wait_until_connected()
 print("Wifi connected as %s" % wifi.ip())
 
-blynk = Blynk("", "iot.area3001.com", 8080)
+blynk = Blynk("44c2b93ff14548148cbe0bb9787eeaff", "51.15.97.205", 8080)
 
 
 def v4_write_handler(value):
