@@ -45,6 +45,7 @@ AUTHENTICATED = 3
 
 EAGAIN = const(11)
 
+
 class HwPin:
     _TimerMap = { 'GP9': (2, machine.Timer),
                  'GP10': (3, machine.Timer),
@@ -108,10 +109,12 @@ class HwPin:
         else:
             self._pwm.duty_cycle(value * 100)
 
+
 class VrPin:
     def __init__(self, read=None, write=None):
         self.read = read
         self.write = write
+
 
 class Blynk:
     def __init__(self, token, server='blynk-cloud.com', port=None, connect=True, wdt=False, ssl=False):
@@ -159,13 +162,14 @@ class Blynk:
                 for param in params:
                     self._vr_pins[pin].write(param)
             else:
-              pass
+                pass
                 # print("Warning: Virtual write to unregistered pin %d" % pin)
         elif cmd == 'vr':
             pin = int(params.pop(0))
             if pin in self._vr_pins and self._vr_pins[pin].read:
                 self._vr_pins[pin].read()
-            else:                pass
+            else:
+                pass
                 # print("Warning: Virtual read from unregistered pin %d" % pin)
         elif self._pins_configured:
             if cmd == 'dw':
@@ -189,7 +193,7 @@ class Blynk:
 
     def _new_msg_id(self):
         self._msg_id += 1
-        if (self._msg_id > 0xFFFF):
+        if self._msg_id > 0xFFFF:
             self._msg_id = 1
         return self._msg_id
 
@@ -203,7 +207,7 @@ class Blynk:
         try:
             self._rx_data += self.conn.recv(length)
         except OSError as e:
-            if e.args[0] ==  errno.EAGAIN:
+            if e.args[0] == errno.EAGAIN:
                 return b''
             elif e.args[0] == errno.ETIMEDOUT:
                 return b''
