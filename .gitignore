@@ -13,3 +13,7 @@ design/fri3d_badge_2016.pdf
 *.sol
 *.stc
 *.sts
+
+code/micropython/\.idea/dictionaries/daan\.xml
+
+code/micropython/\.idea/workspace\.xml
