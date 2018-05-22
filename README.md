@@ -1,9 +1,9 @@
-# Fri3d Camp Badge
+# Fri3d Camp Badge 2018
 
-> Elk zichzelf respecterend hacker/maker/DIY kamp, _moet_ een eigen badge hebben. Zo ook Fri3d Camp :-)
+De Badge voor Fri3d Camp 2018 is in volle ontwikkeling. Op dit ogenblik werken we aan het tweede prototype, dat, als alles goed gaat nagenoeg de finale vorm zal hebben.
 
-Deze repository bevat alle informatie over de verschillende Fri3d Camp Badges:
+![Fri3d Camp Badge prototype 2](media/fri3d-camp-2018-badge-proto-2.png)
 
-### [2018 ![Fri3d Camp Badge 2018](2018/design/v3/OUTPUT/Mech/Fri3dBadge_2018_00_Front.png)](2018/README.md)
+![Fri3d Camp Badge prototype 2](media/fri3d-camp-2018-badge-proto-2-cam.png)
 
-### [2016 ![Fri3d Camp Badge 2016](2016/design/media/badge2016.jpg)](2016/README.md)
+More to come ...
