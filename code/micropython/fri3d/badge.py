@@ -2,6 +2,7 @@ from machine import I2C, Pin, PWM
 import _thread
 import array
 import network
+import utime
 
 
 i2c_bus = I2C(id=0, scl=Pin(22), sda=Pin(21), freq=100000)
@@ -160,20 +161,16 @@ class Buzzer:
 class Matrices:
     def __init__(self, latch=Pin(15), clock=Pin(4), data=Pin(2), enable=Pin(13), register_count=3):
         self.latch = latch
-        self.latch.mode(Pin.OUT)
-        self.latch.value(1)
+        self.latch.init(value=1, mode=Pin.OUT)
 
         self.clock = clock
-        self.clock.mode(Pin.OUT)
-        self.clock.value(0)
+        self.clock.init(value=0, mode=Pin.OUT)
 
         self.data = data
-        self.data.mode(Pin.OUT)
-        self.data.value(0)
+        self.data.init(value=0, mode=Pin.OUT)
 
         self.enable = enable
-        self.enable.mode(Pin.OUT)
-        self.enable.value(0)
+        self.enable.init(value=0, mode=Pin.OUT)
 
         self.register_count = register_count
 
@@ -250,6 +247,7 @@ def video_thread_fn(data, clock, latch, left_matrix, right_matrix):
             latch.value(0)
             latch.value(1)
 
+        utime.sleep_ms(5)
 
 _accelero = None
 _btn0 = None

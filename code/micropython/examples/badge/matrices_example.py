@@ -15,11 +15,11 @@ while True:
 
     # -- run through all the columns in the matrix to set their pixels
     for c in range(0, 7):
-        for m in range(0, 7):
+        for m in range(0, 2):
             badge.matrix().set(m, c, r)
 
     # -- go to the next row
     r += 1
 
-    # -- sleep for 1 second
-    utime.sleep(1)
+    # -- sleep for 100 millis
+    utime.sleep_ms(100)
