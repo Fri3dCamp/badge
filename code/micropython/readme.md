@@ -10,11 +10,10 @@ We are working hard to make the badge something that stands out, so make sure to
  
 ## The Badge
 
-![Fri3d Camp Badge prototype 3](design/v3/OUTPUT/Mech/Fri3dBadge_2018_00_Front.png)
+![Fri3d Camp Badge prototype 3](../../media/Fri3dBadge_2018_00_Proto0.jpg)
 
 The badge contains the following hardware capabilities:
 
-|-------------|-----------|------------------------------------------|
 | component   | status    | description                              |
 |-------------|-----------|------------------------------------------|
 | Wifi        | working   | Connect to a wifi accesspoint or router. |
@@ -23,7 +22,6 @@ The badge contains the following hardware capabilities:
 | Buzzer      | working   | A piezo speaker to make some noise.      |
 | Touch       | partially | Captive touch sensors.                   |
 | Buttons     | issues    | Regular push buttons.                    |
-|-------------|-----------|------------------------------------------|
 
  
 ## Jewels
