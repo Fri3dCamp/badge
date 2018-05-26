@@ -2,10 +2,43 @@ from fri3d.badge import Matrices
 from fri3d.jewels.servo_jewel import ServoJewel
 
 import utime
+import array
 
 
 class Eyes:
     ALL = [0, 1]
+    LOOKUP = [
+        # -- first line
+        array.array('I', [62, 65, 73, 65, 62]),
+        array.array('I', [65, 62, 46, 62, 65]),
+        array.array('I', [65, 62, 54, 62, 65]),
+        array.array('I', [65, 62, 58, 62, 65]),
+        array.array('I', [65, 62, 60, 62, 65]),
+
+        # -- second line
+        array.array('I', [62, 65, 97, 65, 62]),
+        array.array('I', [62, 65, 81, 65, 62]),
+        array.array('I', [62, 65, 73, 65, 62]),
+        array.array('I', [62, 65, 69, 65, 62]),
+        array.array('I', [62, 65, 67, 65, 62]),
+
+        # -- third line
+        array.array('I', [62, 65, 65, 97, 62]),
+        array.array('I', [62, 65, 65, 81, 62]),
+        array.array('I', [62, 65, 65, 73, 62]),
+        array.array('I', [62, 65, 65, 69, 62]),
+        array.array('I', [62, 65, 65, 67, 62]),
+
+        # -- squint
+        array.array('I', [0, 62, 97, 62, 0]),
+        array.array('I', [0, 62, 81, 62, 0]),
+        array.array('I', [0, 62, 73, 62, 0]),
+        array.array('I', [0, 62, 69, 62, 0]),
+        array.array('I', [0, 62, 67, 62, 0]),
+
+        # -- closed
+        array.array('I', [0, 0, 62, 0, 0]),
+    ]
 
     def __init__(self):
         self.matrices = Matrices()
@@ -30,6 +63,17 @@ class Eyes:
             self.matrices.set(i, x + 1, y)
             self.matrices.set(i, x, y + 1)
             self.matrices.set(i, x + 1, y + 1)
+
+    def lookup_pupil(self, index, *eye_ids):
+        if len(eye_ids) == 0:
+            eye_ids = Eyes.ALL
+
+        if index > len(Eyes.LOOKUP):
+            print("Illegal index")
+            return
+
+        for i in eye_ids:
+            self.matrices.buffer[i] = Eyes.LOOKUP[index]
 
 
 class Legs:
