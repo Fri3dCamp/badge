@@ -1,5 +1,6 @@
 from fri3d.badge import Matrices
 from fri3d.jewels.servo_jewel import ServoJewel
+from machine import Timer
 
 import utime
 import array
@@ -9,32 +10,25 @@ class Eyes:
     ALL = [0, 1]
     LOOKUP = [
         # -- first line
-        array.array('I', [62, 65, 73, 65, 62]),
-        array.array('I', [65, 62, 46, 62, 65]),
-        array.array('I', [65, 62, 54, 62, 65]),
-        array.array('I', [65, 62, 58, 62, 65]),
-        array.array('I', [65, 62, 60, 62, 65]),
+        array.array('I', [112, 80, 112, 32, 0]),
+        array.array('I', [56, 40, 56, 16, 0]),
+        array.array('I', [28, 20, 28, 8, 0]),
+        array.array('I', [14, 10, 14, 4, 0]),
+        array.array('I', [7, 5, 7, 2, 0]),
 
         # -- second line
-        array.array('I', [62, 65, 97, 65, 62]),
-        array.array('I', [62, 65, 81, 65, 62]),
-        array.array('I', [62, 65, 73, 65, 62]),
-        array.array('I', [62, 65, 69, 65, 62]),
-        array.array('I', [62, 65, 67, 65, 62]),
+        array.array('I', [32, 112, 80, 112, 32]),
+        array.array('I', [16, 56, 40, 56, 16]),
+        array.array('I', [8, 28, 20, 28, 8]),
+        array.array('I', [4, 14, 10, 14, 4]),
+        array.array('I', [2, 7, 5, 7, 2]),
 
         # -- third line
-        array.array('I', [62, 65, 65, 97, 62]),
-        array.array('I', [62, 65, 65, 81, 62]),
-        array.array('I', [62, 65, 65, 73, 62]),
-        array.array('I', [62, 65, 65, 69, 62]),
-        array.array('I', [62, 65, 65, 67, 62]),
-
-        # -- squint
-        array.array('I', [0, 62, 97, 62, 0]),
-        array.array('I', [0, 62, 81, 62, 0]),
-        array.array('I', [0, 62, 73, 62, 0]),
-        array.array('I', [0, 62, 69, 62, 0]),
-        array.array('I', [0, 62, 67, 62, 0]),
+        array.array('I', [0, 32, 112, 80, 112]),
+        array.array('I', [0, 16, 56, 40, 56]),
+        array.array('I', [0, 8, 28, 20, 28]),
+        array.array('I', [0, 4, 14, 10, 14]),
+        array.array('I', [0, 2, 7, 5, 7]),
 
         # -- closed
         array.array('I', [0, 0, 62, 0, 0]),
@@ -44,7 +38,11 @@ class Eyes:
 
     def __init__(self):
         self.matrices = Matrices(refresh_interval=2)
-        self.eyes = [(0, 0), (0, 0)]
+        self.lookup_pupil(7, 0, 1)
+        # self.tm = Timer(1)
+        # self.tm.init(period=6000, callback=lambda timer: {
+        #     self.blink(0, 1)
+        # })
 
     def draw_pupil(self, eye, *eye_ids):
         for i in eye_ids:
@@ -61,12 +59,12 @@ class Eyes:
         for i in eye_ids:
             self.matrices.buffer[i] = Eyes.LOOKUP[index]
 
-    def blink(self, delay_ms=25, *eye_ids):
+    def blink(self, *eye_ids):
         for m in Eyes.BLINK_MASK:
             for i in eye_ids:
                 self.matrices.mask[i] = m
 
-            utime.sleep_ms(delay_ms)
+            utime.sleep_ms(50)
 
 
 class Legs:

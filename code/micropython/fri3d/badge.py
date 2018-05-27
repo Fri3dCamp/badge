@@ -194,9 +194,9 @@ class Matrices:
 
 
 class Wifi:
-    def __init__(self, ssid, pwd):
-        self.ssid = ssid
-        self.pwd = pwd
+    def __init__(self):
+        self.ssid = None
+        self.pwd = None
         self.wlan = None
 
     def connected(self):
@@ -205,10 +205,10 @@ class Wifi:
 
         return self.wlan.isconnected()
 
-    def connect(self):
+    def connect(self, ssid, pwd):
         self.wlan = network.WLAN(network.STA_IF)
         self.wlan.active(True)
-        self.wlan.connect(self.ssid, self.pwd)
+        self.wlan.connect(ssid, pwd)
 
     def wait_until_connected(self):
         while not self.wlan.isconnected():
@@ -261,13 +261,15 @@ def video_thread_fn(data, clock, latch, buffer, mask, refresh_interval):
         latch.value(1)
 
         row += 1
-        utime.sleep_ms(refresh_interval)
+        _thread.wait(refresh_interval)
+        # utime.sleep_ms(refresh_interval)
 
 _accelero = None
 _btn0 = None
 _btn1 = None
 _matrix = None
 _buzzer = None
+_wifi = None
 
 
 def btn_0():
@@ -313,3 +315,12 @@ def matrix():
         _matrix = Matrices()
 
     return _matrix
+
+
+def wifi():
+    global _wifi
+
+    if not _wifi:
+        _wifi = Wifi()
+
+    return _wifi
