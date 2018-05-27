@@ -13,14 +13,7 @@ class Matrix {
     void clear(uint8_t i, uint8_t y);
     void clear();
 
-    void render(); // called from refresh_screen
-    // static function for threaded screenrefresh, accepts matrix object pointer
-    static void* refresh_screen(void* matrix) {
-      Serial.println("start refresh screen");
-      while(true) {
-        ((Matrix *)matrix)->render();
-      }
-    }
+    void render(void * parameter); // called from refresh_screen
     void start();
     void write(char c, uint8_t x);
     void write(char c);
@@ -30,6 +23,7 @@ class Matrix {
     uint8_t matrix[14] = { 0 };
     void render(int right, int left);
     int pixel(uint8_t x, uint8_t y, uint8_t eye);
+    TaskHandle_t video_task;
 };
 
 #endif

@@ -40,29 +40,15 @@ class Eyes:
         array.array('I', [0, 0, 62, 0, 0]),
     ]
 
+    BLINK_MASK = [31, 14, 4, 0, 4, 14, 31]
+
     def __init__(self):
-        self.matrices = Matrices()
+        self.matrices = Matrices(refresh_interval=2)
         self.eyes = [(0, 0), (0, 0)]
 
-    def draw_pupil(self, x, y, *eye_ids):
-        if len(eye_ids) == 0:
-            eye_ids = Eyes.ALL
-
-        if x > 5:
-            print("Illegal x value")
-            return
-
-        if y > 3:
-            print("Illegal y value")
-            return
-
+    def draw_pupil(self, eye, *eye_ids):
         for i in eye_ids:
-            self.eyes[i] = (x, y)
-            self.matrices.clear(i)
-            self.matrices.set(i, x, y)
-            self.matrices.set(i, x + 1, y)
-            self.matrices.set(i, x, y + 1)
-            self.matrices.set(i, x + 1, y + 1)
+            self.matrices.buffer[i] = eye
 
     def lookup_pupil(self, index, *eye_ids):
         if len(eye_ids) == 0:
@@ -74,6 +60,13 @@ class Eyes:
 
         for i in eye_ids:
             self.matrices.buffer[i] = Eyes.LOOKUP[index]
+
+    def blink(self, delay_ms=25, *eye_ids):
+        for m in Eyes.BLINK_MASK:
+            for i in eye_ids:
+                self.matrices.mask[i] = m
+
+            utime.sleep_ms(delay_ms)
 
 
 class Legs:

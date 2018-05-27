@@ -159,7 +159,7 @@ class Buzzer:
 
 
 class Matrices:
-    def __init__(self, latch=Pin(15), clock=Pin(4), data=Pin(2), enable=Pin(13), register_count=3):
+    def __init__(self, latch=Pin(15), clock=Pin(4), data=Pin(2), enable=Pin(13), register_count=3, refresh_interval=2):
         self.latch = latch
         self.latch.init(value=1, mode=Pin.OUT)
 
@@ -174,13 +174,15 @@ class Matrices:
 
         self.register_count = register_count
 
+        self.mask = array.array('I', [31, 31])
+
         self.buffer = [
             array.array('I', [0 for _ in range(0, 5)]),
             array.array('I', [0 for _ in range(0, 5)])
         ]
 
         _thread.start_new_thread(
-            "video", video_thread_fn, (self.data, self.clock, self.latch, self.buffer)
+            "video", video_thread_fn, (self.data, self.clock, self.latch, self.buffer, self.mask, refresh_interval)
         )
 
     def set(self, matrix, x, y):
@@ -216,34 +218,50 @@ class Wifi:
         return self.wlan.ifconfig()[0]
 
 
-def video_thread_fn(data, clock, latch, buffer):
+def video_thread_fn(data, clock, latch, buffer, mask, refresh_interval):
     print("video_thread: started")
     _thread.allowsuspend(True)
 
-    def shiftbit(bit):
-        data.value(bit)
-        clock.value(1)
-        clock.value(0)
+    d = [
+        [1, 0, 0, 0, 0],
+        [0, 1, 0, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 0, 1, 0],
+        [0, 0, 0, 0, 1]
+    ]
+
+    r = [0, 1, 2, 3, 4, 5, 6]
+
+    row = 0
 
     while True:
-        for y in range(0, 5):
+        row %= 5
+        for x in r:
+            # (mask[1][row] >> x)
+            data.value(1 - ((buffer[1][row] >> x & 1) & (mask[1] >> row & 1)))
+            clock.value(1)
+            clock.value(0)
 
-            for x in range(0, 7):
-                shiftbit(~(buffer[1][y] >> x) & 1)
+        for j in d[row]:
+            data.value(j)
+            clock.value(1)
+            clock.value(0)
 
-            for j in range(0, 5):
-                shiftbit(int(j == y))
+        for x in r:
+            data.value(1 - ((buffer[0][row] >> x & 1) & (mask[0] >> row & 1)))
+            clock.value(1)
+            clock.value(0)
 
-            for x in range(0, 7):
-                shiftbit(~(buffer[0][y] >> x) & 1)
+        for j in d[row]:
+            data.value(j)
+            clock.value(1)
+            clock.value(0)
 
-            for j in range(0, 5):
-                shiftbit(int(j == y))
+        latch.value(0)
+        latch.value(1)
 
-            latch.value(0)
-            latch.value(1)
-
-        utime.sleep_ms(5)
+        row += 1
+        utime.sleep_ms(refresh_interval)
 
 _accelero = None
 _btn0 = None

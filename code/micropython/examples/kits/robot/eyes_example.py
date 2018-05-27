@@ -1,19 +1,24 @@
 from fri3d.kits import robot
 import utime
+import array
 
 eyes = robot.eyes()
 
+e = [
+    array.array('I', [127, 127, 127, 127, 127]),
+    array.array('I', [8, 28, 28, 28, 8]),
+    array.array('I', [0, 28, 20, 28, 0]),
+    array.array('I', [62, 65, 73, 65, 62]),
+]
 
-x = 0
-y = 0
+to_render = 0
 
 while True:
-    x %= 7
-    y %= 5
+    to_render %= 4
 
-    eyes.draw_pupil(x, y, robot.RIGHT_EYE, robot.LEFT_EYE)
-
-    x += 1
-    y += 1
+    print("Rendering eye ", to_render)
+    eyes.draw_pupil(e[to_render], 0, 1)
 
     utime.sleep(3)
+
+    to_render += 1

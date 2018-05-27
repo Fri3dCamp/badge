@@ -46,8 +46,23 @@ void Matrix::start() {
   this->render(0,0);
   
   // start screen refresh thread
-  pthread_t video_thread;
-  pthread_create(&video_thread, NULL, &Matrix::refresh_screen, this);
+  xTaskCreatePinnedToCore(
+    codeForTask2,            /* Task function. */
+    "video_task",                 /* name of task. */
+    1000,                    /* Stack size of task */
+    this,                     /* parameter of the task */
+    1,                        /* priority of the task */
+    &video_task,               /* Task handle to keep track of created task */
+    1);                       /* Core */
+}
+
+void codeForTask2( void * parameter )
+{
+  for (;;) {
+    Serial.print("The second Task runs on Core: ");
+    Serial.println(xPortGetCoreID());
+    delay(2000);                       // wait for a second
+  }
 }
 
 void Matrix::set(uint8_t x, uint8_t y) {
@@ -82,7 +97,7 @@ void Matrix::write(char c, uint8_t x) {
 #define BITSET(var,pos) ((var) & (1<<(pos)))
 
 // function to perform screen refresh
-void Matrix::render() {
+void Matrix::render(void * parameter) {
   for(uint8_t y=0; y<5; y++) {
     for(uint8_t x=0; x<7; x++) {
       int right = BITSET(this->matrix[x],  y) ? pixel(x, y, RIGHT_EYE) : 0;
