@@ -60,6 +60,9 @@ class Eyes:
             self.matrices.buffer[i] = Eyes.LOOKUP[index]
 
     def blink(self, *eye_ids):
+        if len(eye_ids) == 0:
+            eye_ids = [0, 1]
+
         for m in Eyes.BLINK_MASK:
             for i in eye_ids:
                 self.matrices.mask[i] = m
