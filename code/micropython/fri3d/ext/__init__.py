@@ -41,7 +41,7 @@ class Servo:
 
         :return:    the angle expressed as degrees
         """
-        return self.pos() * 180
+        return int(self.pos() * 180)
 
     def pos(self):
         """
@@ -49,7 +49,7 @@ class Servo:
 
         :return:    the position of the servo as a float between 0 and 1
         """
-        return int((self.pwm.duty - self.lower_duty) / (self.upper_duty - self.lower_duty) * 100) / 100
+        return int((self.pwm.duty() - self.lower_duty) / (self.upper_duty - self.lower_duty) * 100) / 100
 
     def center(self):
         """

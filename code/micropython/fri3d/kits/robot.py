@@ -68,7 +68,7 @@ class Eyes:
 
 
 class Legs:
-    def __init__(self, left_hip=0, left_ankle=1, right_hip=2, right_ankle=3):
+    def __init__(self, left_hip=1, left_ankle=0, right_hip=2, right_ankle=3):
         self.left_hip = left_hip
         self.left_ankle = left_ankle
         self.right_hip = right_hip
@@ -82,105 +82,184 @@ class Legs:
     def reset(self):
         self.servos.center()
 
-    def stepper(self, from_angle, to_angle, interval, step=1, *servos):
-        if from_angle < to_angle:
-            r = list(range(from_angle, to_angle + step, step))
-        else:
-            r = list(range(from_angle, to_angle - step, -step))
-
-        for i in r:
-            for s in servos:
-                s.set_angle(i)
-
-            utime.sleep_ms(interval)
-
 # -- Leaning ----------------------------------------------------------------------------------------------------------
 
-    def lean_to_left(self):
-        self.servos.step_angle(90, 60, 8, 5, self.right_ankle)
-        self.servos.step_angle(90, 60, 10, 5, self.left_ankle)
+    def lean_to_left(self, speed=ServoJewel.SPEED_MEDIUM):
+        self.servos.step_angle(60, speed, self.right_ankle)
+        self.servos.step_angle(60, speed, self.left_ankle)
 
-    def lean_to_right(self):
-        self.servos.step_angle(90, 120, 8, 5, self.left_ankle)
-        self.servos.step_angle(90, 120, 10, 5, self.right_ankle)
+    def lean_to_right(self, speed=ServoJewel.SPEED_MEDIUM):
+        self.servos.step_angle(120, speed, self.left_ankle)
+        self.servos.step_angle(120, speed, self.right_ankle)
 
-    def undo_lean_to_left(self):
-        self.servos.step_angle(60, 90, 8, 5, self.right_ankle)
-        self.servos.step_angle(60, 90, 10, 5, self.left_ankle)
+    def undo_lean_to_left(self, speed=ServoJewel.SPEED_SLOW):
+        self.servos.step_angle(90, speed, self.right_ankle)
+        self.servos.step_angle(90, int(speed * 2), self.left_ankle)
 
-    def undo_lean_to_right(self):
-        self.servos.step_angle(120, 90, 8, 5, self.left_ankle)
-        self.servos.step_angle(120, 90, 10, 5, self.right_ankle)
+    def undo_lean_to_right(self, speed=ServoJewel.SPEED_SLOW):
+        self.servos.step_angle(90, speed, self.left_ankle)
+        self.servos.step_angle(90, int(speed * 2), self.right_ankle)
+
+# -- Twisting ---------------------------------------------------------------------------------------------------------
+
+    def twist_left(self, speed=ServoJewel.SPEED_FAST):
+        self._twist(120, speed)
+
+    def twist_center(self, speed=ServoJewel.SPEED_FAST):
+        self._twist(90, speed)
+
+    def twist_right(self, speed=ServoJewel.SPEED_FAST):
+        self._twist(60, speed)
+
+    def _twist(self, angle, speed=ServoJewel.SPEED_FAST):
+        self.servos.step_angle(angle, speed, self.right_hip, self.left_hip)
 
 # -- Pointing Feet ----------------------------------------------------------------------------------------------------
 
     def center_to_front_right(self):
-        self.servos.step_angle(90, 120, 8, 5, self.right_hip, self.left_hip)
+        self.servos.step_angle(120, ServoJewel.SPEED_FAST, self.right_hip, self.left_hip)
 
     def front_right_to_center(self):
-        self.servos.step_angle(120, 90, 8, 5, self.right_hip, self.left_hip)
+        self.servos.step_angle(90, ServoJewel.SPEED_FAST, self.right_hip, self.left_hip)
 
     def center_to_front_left(self):
-        self.servos.step_angle(90, 60, 8, 5, self.right_hip, self.left_hip)
+        self.servos.step_angle(60, ServoJewel.SPEED_FAST, self.right_hip, self.left_hip)
 
     def front_left_to_center(self):
-        self.servos.step_angle(60, 90, 8, 5, self.right_hip, self.left_hip)
+        self.servos.step_angle(90, ServoJewel.SPEED_FAST, self.right_hip, self.left_hip)
+
+# -- Cuties -----------------------------------------------------------------------------------------------------------
+
+    def say_hello_left(self):
+        self.lean_to_left(ServoJewel.SPEED_SLOW)
+
+        for i in range(0, 3):
+            self.servos.step_angle(120, ServoJewel.SPEED_SLOW, self.right_ankle)
+            utime.sleep_ms(50)
+            self.servos.step_angle(60, ServoJewel.SPEED_SLOW, self.right_ankle)
+            utime.sleep_ms(50)
+
+        self.undo_lean_to_left(ServoJewel.SPEED_SLOW)
+
+    def say_hello_right(self):
+        self.lean_to_right(ServoJewel.SPEED_SLOW)
+
+        for i in range(0, 3):
+            self.servos.step_angle(120, ServoJewel.SPEED_SLOW, self.left_ankle)
+            utime.sleep_ms(50)
+            self.servos.step_angle(60, ServoJewel.SPEED_SLOW, self.left_ankle)
+            utime.sleep_ms(50)
+
+        self.undo_lean_to_right(ServoJewel.SPEED_SLOW)
+
+    def shake_left(self):
+        self.lean_to_left(ServoJewel.SPEED_SLOW)
+
+        for i in range(0, 3):
+            self.servos.step_angle(120, ServoJewel.SPEED_FAST, self.right_hip)
+            utime.sleep_ms(50)
+            self.servos.step_angle(60, ServoJewel.SPEED_FAST, self.right_hip)
+            utime.sleep_ms(50)
+
+        self.servos.step_angle(90, ServoJewel.SPEED_FAST, self.right_hip)
+        self.undo_lean_to_left(ServoJewel.SPEED_SLOW)
+
+    def shake_right(self):
+        self.lean_to_right(ServoJewel.SPEED_SLOW)
+
+        for i in range(0, 3):
+            self.servos.step_angle(120, ServoJewel.SPEED_FAST, self.left_hip)
+            utime.sleep_ms(50)
+            self.servos.step_angle(60, ServoJewel.SPEED_FAST, self.left_hip)
+            utime.sleep_ms(50)
+
+        self.servos.step_angle(90, ServoJewel.SPEED_FAST, self.left_hip)
+        self.undo_lean_to_right(ServoJewel.SPEED_SLOW)
+
+
+# -- Jumping ----------------------------------------------------------------------------------------------------------
+
+    def jump(self, delay_between_setting=200):
+        self.servos.set_angle(30, self.right_ankle)
+        self.servos.set_angle(150, self.left_ankle)
+        utime.sleep_ms(delay_between_setting)
+        self.servos.set_angle(90, self.right_ankle, self.left_ankle)
 
 # -- Walking ----------------------------------------------------------------------------------------------------------
 
-    def step_forward(self):
-        self.lean_to_right()
-        self.front_right_to_center()
-        self.center_to_front_left()
-        self.undo_lean_to_right()
+    def walk_forward(self, speed=ServoJewel.SPEED_MEDIUM):
+        self.lean_to_right(speed)
+        self.twist_right(speed)
+        self.undo_lean_to_right(speed)
 
         #checkproximity();
 
-        self.lean_to_left()
-        self.front_left_to_center()
-        self.center_to_front_right()
-        self.undo_lean_to_left()
+        self.lean_to_left(speed)
+        self.twist_left(speed)
+        self.undo_lean_to_left(speed)
 
         #checkproximity();
 
-    def step_backward(self):
-        self.lean_to_right()
-        self.front_left_to_center()
-        self.center_to_front_right()
-        self.undo_lean_to_right()
+    def walk_backward(self, speed=ServoJewel.SPEED_MEDIUM):
+        self.lean_to_right(speed)
+        self.twist_left(speed)
+        self.undo_lean_to_right(speed)
 
         # checkproximity();
 
-        self.lean_to_left()
-        self.front_right_to_center()
-        self.center_to_front_left()
-        self.undo_lean_to_left()
+        self.lean_to_left(speed)
+        self.twist_right(speed)
+        self.undo_lean_to_left(speed)
 
         # checkproximity();
 
-    def turn_left(self):
-        self.servos.set_angle(90, self.left_hip, self.right_hip)
+# -- Stepping ----------------------------------------------------------------------------------------------------------
 
-        self.lean_to_right()
-        self.servos.step_angle(90, 120, 15, 10, self.right_hip)
-        self.undo_lean_to_right()
+    def step_backward(self, speed=ServoJewel.SPEED_MEDIUM):
+        self.lean_to_right(speed)
+        self.twist_left(speed)
+        self.undo_lean_to_right(speed)
 
-        self.lean_to_left()
-        self.servos.set_angle(90, self.right_hip)
-        utime.sleep_ms(100)
-        self.undo_lean_to_left()
+        #checkproximity();
 
-    def turn_right(self):
-        self.servos.set_angle(90, self.left_hip, self.right_hip)
+        self.lean_to_left(speed)
+        self.twist_center(speed)
+        self.undo_lean_to_left(speed)
 
-        self.lean_to_left()
-        self.servos.step_angle(90, 60, 15, 10, self.left_hip)
-        self.undo_lean_to_left()
+        #checkproximity();
 
-        self.lean_to_right()
-        self.servos.set_angle(90, self.left_hip)
-        utime.sleep_ms(100)
-        self.undo_lean_to_right()
+    def step_forward(self, speed=ServoJewel.SPEED_MEDIUM):
+        self.lean_to_right(speed)
+        self.twist_right(speed)
+        self.undo_lean_to_right(speed)
+
+        # checkproximity();
+
+        self.lean_to_left(speed)
+        self.twist_center(speed)
+        self.undo_lean_to_left(speed)
+
+        # checkproximity();
+
+# -- Turning ----------------------------------------------------------------------------------------------------------
+
+    def turn_right(self, speed=ServoJewel.SPEED_MEDIUM):
+        self.lean_to_right(speed)
+        self.servos.step_angle(60, speed, self.right_hip)
+        self.undo_lean_to_right(speed)
+
+        self.lean_to_left(speed)
+        self.servos.step_angle(90, speed, self.right_hip)
+        self.undo_lean_to_left(speed)
+
+    def turn_left(self, speed=ServoJewel.SPEED_MEDIUM):
+        self.lean_to_left(speed)
+        self.servos.step_angle(120, speed, self.left_hip)
+        self.undo_lean_to_left(speed)
+
+        self.lean_to_right(speed)
+        self.servos.step_angle(90, speed, self.left_hip)
+        self.undo_lean_to_right(speed)
 
 
 RIGHT_EYE = 0

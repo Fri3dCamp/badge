@@ -4,6 +4,10 @@ import utime
 
 class ServoJewel:
     ALL = [0, 1, 2, 3]
+    SPEED_FAST = 8
+    SPEED_MEDIUM = 15
+    SPEED_SLOW = 25
+    SPEED_LAZY = 50
 
     def __init__(self):
         self.servos = [Servo(32), Servo(25), Servo(26), Servo(27)]
@@ -50,17 +54,27 @@ class ServoJewel:
         for i in servo_ids:
             self.servos[i].set_percentage(pct)
 
-    def step_angle(self, from_angle, to_angle, interval, step, *servo_ids):
+    def step_angle(self, to_angle, speed, *servo_ids):
         if len(servo_ids) == 0:
             servo_ids = ServoJewel.ALL
 
-        if from_angle < to_angle:
-            r = list(range(from_angle, to_angle + step, step))
-        else:
-            r = list(range(from_angle, to_angle - step, -step))
+        longest_range = 0
+        ranges = {}
+        for s in servo_ids:
+            from_angle = self.servos[s].angle()
+            if from_angle < to_angle:
+                ranges[s] = list(range(from_angle, to_angle + 5, 5))
+            else:
+                ranges[s] = list(range(from_angle, to_angle - 5, -5))
 
-        for i in r:
+            if longest_range < len(ranges[s]):
+                longest_range = len(ranges[s])
+
+        for i in range(0, longest_range):
             for s in servo_ids:
-                self.servos[s].set_angle(i)
+                if i >= len(ranges[s]):
+                    continue
 
-            utime.sleep_ms(interval)
+                self.servos[s].set_angle(ranges[s][i])
+
+            utime.sleep_ms(speed)
