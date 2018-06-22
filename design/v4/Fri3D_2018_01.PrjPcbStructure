@@ -1,0 +1,4 @@
+Record=TopLevelDocument|FileName=Fri3D_2018_01.SchDoc
+Record=SheetSymbol|SourceDocument=Fri3D_2018_01.SchDoc|Designator=Controller|SchDesignator=Controller|FileName=Fri3D_2018_CONTROLLER_01.SchDoc|SymbolType=Normal|RawFileName=Fri3D_2018_CONTROLLER_01.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Fri3D_2018_01.SchDoc|Designator=Eyes|SchDesignator=Eyes|FileName=Fri3D_2018_LEDS_01.SchDoc|SymbolType=Normal|RawFileName=Fri3D_2018_LEDS_01.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Fri3D_2018_01.SchDoc|Designator=Power|SchDesignator=Power|FileName=Fri3D_2018_POWER_01.SchDoc|SymbolType=Normal|RawFileName=Fri3D_2018_POWER_01.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
