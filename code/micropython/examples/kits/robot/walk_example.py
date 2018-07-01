@@ -1,37 +1,38 @@
 from fri3d.kits import robot
+from fri3d import Badge
 import utime
 
-l = robot.legs()
-e = robot.eyes()
+b = Badge(enable_eyes=True)
+legs = robot.legs()
 
 while True:
     utime.sleep(2)
-    e.blink()
+    b.eyes.blink()
 
     utime.sleep_ms(500)
-    l.say_hello_left()
+    legs.say_hello_left()
 
     utime.sleep_ms(500)
-    e.blink()
+    b.eyes.blink()
 
     utime.sleep_ms(250)
-    l.turn_left()
+    legs.turn_left()
 
-    e.blink()
+    b.eyes.blink()
     utime.sleep(1)
-    e.blink()
+    b.eyes.blink()
 
-    l.turn_right()
-    l.turn_right()
+    legs.turn_right()
+    legs.turn_right()
 
     utime.sleep(1)
-    e.blink()
+    b.eyes.blink()
 
     utime.sleep_ms(250)
-    l.turn_left()
+    legs.turn_left()
 
     utime.sleep(1)
-    e.blink()
+    b.eyes.blink()
 
-    l.shake_right()
-    e.blink()
+    legs.shake_right()
+    b.eyes.blink()

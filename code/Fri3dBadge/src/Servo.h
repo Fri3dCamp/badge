@@ -3,7 +3,7 @@
 
 #include "Arduino.h"
 
-#include <ESP32Servo.h>
+// #include <ESP32Servo.h>
 
 // een verpakking voor de technische ESP32Servo klasse
 
@@ -16,7 +16,7 @@ class Servo {
 		void draai_naar(int hoek, int interval);
 		int hoek();
 	private:
-		ESP32Servo* servo;
+		// ESP32Servo* servo;
 };
 
 #endif

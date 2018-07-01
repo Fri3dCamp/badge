@@ -11,10 +11,13 @@
 
 // LED matrix pinnen
 
-#define LED_LATCH_PIN  22
-#define LED_CLOCK_PIN  23
-#define LED_DATA_PIN   14
-#define LED_ENABLE_PIN 21
+#define LED_LATCH_PIN  15
+#define LED_CLOCK_PIN  4
+#define LED_DATA_PIN   2
+#define LED_ENABLE_PIN 13
+
+#define LED_RIGHT_EYE 0
+#define LED_LEFT_EYE  1
 
 // Servo pinnen
 
