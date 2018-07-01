@@ -17,7 +17,7 @@ class Feedback:
 
 class Badge:
     def __init__(self, data_cb=None, enable_eyes=False, enable_buzzer=False, enable_accelero=False):
-        self.client_id = machine.nvs_getstr('token')
+        self.id = machine.nvs_getstr('token')
         self.wifi_ssid = machine.nvs_getstr('ssid')
         self.wifi_password = machine.nvs_getstr('pwd')
         self.mqtt_server = machine.nvs_getstr('mqtt_server')
@@ -25,7 +25,7 @@ class Badge:
         self.mqtt_password = machine.nvs_getstr('mqtt_password')
 
         self.wifi = network.WLAN(network.STA_IF)
-        self.mqtt = network.mqtt(self.client_id, self.mqtt_server,
+        self.mqtt = network.mqtt(self.id, self.mqtt_server,
                                  user=self.mqtt_user,
                                  password=self.mqtt_password,
                                  cleansession=True,
@@ -50,7 +50,7 @@ class Badge:
             self.accelero = AcceleroMeter(i2c_bus)
             print(Feedback.INF_ACCELERO_ENABLED)
 
-    def connect(self, timeout=5000):
+    def connect(self, timeout=10000):
         self.wifi.active(True)
         self.wifi.connect(self.wifi_ssid, self.wifi_password)
 
@@ -307,8 +307,8 @@ class Eyes:
         self.mask = array.array('I', [31, 31])
 
         self.buffer = [
-            array.array('I', [0 for _ in range(0, 5)]),
-            array.array('I', [0 for _ in range(0, 5)])
+            Eyes.LOOKUP[1][2],
+            Eyes.LOOKUP[1][2]
         ]
 
         _thread.start_new_thread(
