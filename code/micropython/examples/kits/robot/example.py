@@ -1,5 +1,6 @@
 from fri3d import Badge
 from fri3d.kits.robot import Legs
+import network
 
 LEFT = 'LEFT'
 RIGHT = 'RIGHT'
@@ -12,6 +13,16 @@ SHAKE = 'SHAKE'
 HELLO = 'HELLO'
 TUNE = 'TUNE'
 
+def wifi_cb(info):
+    if (info[2]):
+        msg = ", info: {}".format(info[2])
+    else:
+        msg = ""
+    print("[WiFi] event: {} ({}){}".format(info[0], info[1], msg))
+
+# Enable callbacks
+network.WLANcallback(wifi_cb)
+
 
 def on_legs_data(data):
     parts = data.split()
@@ -21,7 +32,6 @@ def on_legs_data(data):
 
     elif parts[0] == TUNE:
         if len(parts) != 4:
-            print("bwek")
             return
 
         idx = int(parts[1])
@@ -29,7 +39,6 @@ def on_legs_data(data):
         max = float(parts[3])
 
         if idx < 0 or idx > 3:
-            print("bwok")
             return
 
         legs.servos.tune(idx, min, max)

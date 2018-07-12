@@ -5,6 +5,17 @@ import _thread
 import array
 
 
+def set_wifi(ssid, pwd):
+    machine.nvs_setstr('ssid', ssid)
+    machine.nvs_setstr('pwd', pwd)
+
+
+def set_mqtt(server, user, password):
+    machine.nvs_setstr('mqtt_server', server)
+    machine.nvs_setstr('mqtt_user', user)
+    machine.nvs_setstr('mqtt_password', password)
+
+
 class Feedback:
     ERR_TIMEOUT_WIFI = "WIFI Timeout!"
     ERR_TIMEOUT_MQTT = "MQTT Timeout!"

@@ -7,7 +7,7 @@ SERVO_MAX_PCT = 13.2
 
 
 class Servo:
-    def __init__(self, pin, freq=SERVO_FREQUENCY):
+    def __init__(self, pin, freq=SERVO_FREQUENCY, timer=2):
         """
         Create a new Servo instance
 
@@ -20,7 +20,7 @@ class Servo:
 
         self.pct_per_degree = (self.max_pct - self.min_pct) / float(180)
 
-        self.pwm = PWM(pin, freq=freq)
+        self.pwm = PWM(pin, freq=freq, timer=timer)
         self.angle(90)
 
     def tune(self, min_pct, max_pct):

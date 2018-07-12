@@ -2,9 +2,9 @@ from fri3d.jewels.servo_jewel import ServoJewel
 
 import utime
 
-MIN = 55
+MIN = 60
 CENTER = 90
-MAX = 125
+MAX = 120
 
 
 class Legs:

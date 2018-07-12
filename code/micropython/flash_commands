@@ -1,0 +1,2 @@
+cp -r fri3d /
+repl ~ import machine ~ machine.reset() ~

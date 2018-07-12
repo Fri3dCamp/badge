@@ -11,7 +11,7 @@ class ServoJewel:
     SPEED_LAZY = 50
 
     def __init__(self):
-        self.servos = [Servo(32), Servo(25), Servo(26), Servo(27)]
+        self.servos = [Servo(32, timer=0), Servo(25, timer=1), Servo(26, timer=2), Servo(27, timer=3)]
         for i in range(4):
             settings = machine.nvs_getstr('servo_' + str(i))
 
