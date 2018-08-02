@@ -18,7 +18,7 @@ environment (Mac, Linux, Windows) and get started hacking the badge.
 ## Installation
 
 * Download and install [Visual Studio Code](https://code.visualstudio.com/).
-* Install the [PlatformIO IDE extension](https://platformio.org/get-started/ide?install=vscode)
+* Install the [PlatformIO IDE extension](https://platformio.org/install/ide?install=vscode)
 in Visual Studio Code. You will be asked to reload VS Code a couple of times.
 If everything went well you should be greated by the PIO Home screen in VS Code.
 * You can read up on the PlatformIO documentation, browse through the supported
